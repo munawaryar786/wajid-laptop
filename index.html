@@ -1,0 +1,1111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Al Wajid Laptops – Best Used Laptops in Lahore</title>
+  <link rel="stylesheet" href="style.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+  <style>
+    /* ====== HOME-ONLY STYLES ====== */
+
+    /* --- HERO --- */
+    .hero {
+      min-height: 90vh;
+      background: linear-gradient(135deg, #070b15 0%, #0d1527 55%, #111d35 100%);
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -160px; right: -160px;
+      width: 620px; height: 620px;
+      background: radial-gradient(circle, rgba(230,57,70,.16) 0%, transparent 68%);
+      pointer-events: none;
+    }
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: -100px; left: -80px;
+      width: 400px; height: 400px;
+      background: radial-gradient(circle, rgba(59,130,246,.08) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      gap: 52px;
+      padding: 72px 0;
+      position: relative;
+      z-index: 1;
+    }
+    /* Hero Left */
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      background: rgba(230,57,70,.1);
+      border: 1px solid rgba(230,57,70,.25);
+      color: var(--red);
+      padding: 5px 14px;
+      border-radius: 50px;
+      font-size: .75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .9px;
+      margin-bottom: 18px;
+    }
+    .hero-eyebrow .pulse {
+      width: 6px; height: 6px;
+      background: var(--red);
+      border-radius: 50%;
+      animation: pulse 1.6s infinite;
+    }
+    @keyframes pulse {
+      0%,100% { transform: scale(1); opacity:1; }
+      50% { transform: scale(1.5); opacity:.4; }
+    }
+    .hero h1 {
+      font-size: clamp(1.9rem, 3.4vw, 3.1rem);
+      font-weight: 900;
+      line-height: 1.15;
+      margin-bottom: 16px;
+    }
+    .hero h1 .r { color: var(--red); }
+    .hero h1 .y { color: var(--yellow); }
+    .hero-desc {
+      font-size: .9rem;
+      color: var(--gray);
+      line-height: 1.8;
+      margin-bottom: 28px;
+      max-width: 440px;
+    }
+    .hero-btns {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 40px;
+    }
+    .hero-stats {
+      display: grid;
+      grid-template-columns: repeat(3,1fr);
+      background: rgba(255,255,255,.04);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      overflow: hidden;
+      max-width: 400px;
+    }
+    .h-stat {
+      padding: 16px;
+      text-align: center;
+      border-right: 1px solid var(--border);
+      transition: var(--tr);
+    }
+    .h-stat:last-child { border-right: none; }
+    .h-stat:hover { background: rgba(230,57,70,.08); }
+    .h-stat-num {
+      font-size: 1.55rem;
+      font-weight: 900;
+      color: var(--red);
+      line-height: 1;
+    }
+    .h-stat-lbl {
+      font-size: .68rem;
+      color: var(--gray);
+      margin-top: 3px;
+      font-weight: 500;
+    }
+
+    /* Hero Right — laptop showcase */
+    .hero-right {
+      position: relative;
+    }
+    .hero-main-card {
+      background: linear-gradient(145deg, #1a2438, #111c2e);
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      padding: 26px;
+      box-shadow: var(--shadow-lg);
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-main-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--red), #f59e0b);
+    }
+    .hc-img {
+      border-radius: 12px;
+      overflow: hidden;
+      background: #0f1825;
+      height: 185px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 18px;
+    }
+    .hc-img img {
+      width: 100%; height: 100%;
+      object-fit: contain;
+      padding: 12px;
+    }
+    .hc-title { font-size: .96rem; font-weight: 700; margin-bottom: 8px; }
+    .hc-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+      margin-bottom: 14px;
+    }
+    .chip {
+      background: rgba(255,255,255,.05);
+      border: 1px solid var(--border);
+      padding: 2px 9px;
+      border-radius: 20px;
+      font-size: .7rem;
+      color: var(--light);
+    }
+    .hc-foot {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .hc-price { font-size: 1.4rem; font-weight: 900; color: var(--red); }
+    /* Floating pills */
+    .fpill {
+      position: absolute;
+      background: rgba(17,28,46,.95);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 10px 14px;
+      backdrop-filter: blur(10px);
+      box-shadow: var(--shadow);
+    }
+    .fpill-1 { top: -16px; right: -14px; animation: flt 3.5s ease-in-out infinite; }
+    .fpill-2 { bottom: -12px; left: -16px; animation: flt 3.5s ease-in-out infinite .9s; }
+    @keyframes flt {
+      0%,100% { transform: translateY(0); }
+      50% { transform: translateY(-9px); }
+    }
+    .fpill-lbl { font-size: .65rem; color: var(--gray); display: block; }
+    .fpill-val { font-size: .88rem; font-weight: 700; }
+    .fpill-val.g { color: var(--green); }
+    .fpill-val.y { color: var(--yellow); }
+
+    /* --- BRAND MARQUEE --- */
+    .marquee-wrap {
+      background: var(--navy2);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 16px 0;
+      overflow: hidden;
+    }
+    .marquee-track {
+      display: flex;
+      gap: 56px;
+      width: max-content;
+      animation: marquee 24s linear infinite;
+    }
+    @keyframes marquee {
+      0%   { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    .m-brand {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: .88rem;
+      font-weight: 600;
+      color: var(--gray);
+      white-space: nowrap;
+    }
+    .m-brand i { color: var(--red); }
+
+    /* --- FEATURES --- */
+    .feat-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 18px;
+    }
+    .feat-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 26px 22px;
+      transition: var(--tr);
+      position: relative;
+      overflow: hidden;
+    }
+    .feat-card::after {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: var(--red);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform .35s ease;
+    }
+    .feat-card:hover::after { transform: scaleX(1); }
+    .feat-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(230,57,70,.35);
+      box-shadow: var(--shadow-lg);
+    }
+    .feat-icon {
+      width: 50px; height: 50px;
+      background: rgba(230,57,70,.1);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.3rem;
+      color: var(--red);
+      margin-bottom: 16px;
+      transition: var(--tr);
+    }
+    .feat-card:hover .feat-icon {
+      background: var(--red);
+      color: #fff;
+    }
+    .feat-card h3 { font-size: .92rem; font-weight: 700; margin-bottom: 7px; }
+    .feat-card p { font-size: .8rem; color: var(--gray); line-height: 1.7; }
+
+    /* --- PRODUCTS SLIDER (home preview) --- */
+    .swiper-prod { padding-bottom: 42px !important; }
+
+    /* --- PROMO BANNER --- */
+    .promo-band {
+      background: linear-gradient(135deg, var(--red) 0%, #a01020 100%);
+      border-radius: 20px;
+      padding: 50px 44px;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 36px;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .promo-band::before {
+      content: '';
+      position: absolute;
+      top: -60px; right: -60px;
+      width: 240px; height: 240px;
+      background: rgba(255,255,255,.06);
+      border-radius: 50%;
+    }
+    .promo-band::after {
+      content: '';
+      position: absolute;
+      bottom: -50px; left: 35%;
+      width: 160px; height: 160px;
+      background: rgba(255,255,255,.04);
+      border-radius: 50%;
+    }
+    .promo-txt { position: relative; z-index: 1; }
+    .promo-tag {
+      display: inline-block;
+      background: rgba(255,255,255,.15);
+      padding: 3px 12px;
+      border-radius: 20px;
+      font-size: .72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .8px;
+      margin-bottom: 10px;
+    }
+    .promo-txt h2 { font-size: 1.6rem; font-weight: 900; line-height: 1.25; margin-bottom: 10px; }
+    .promo-txt p { font-size: .86rem; opacity: .85; line-height: 1.7; max-width: 420px; }
+    .promo-btns {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .promo-btns .btn-wht {
+      background: #fff;
+      color: var(--red);
+      font-weight: 700;
+      padding: 11px 26px;
+      border-radius: 50px;
+      border: none;
+      font-size: .86rem;
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      transition: var(--tr);
+      cursor: pointer;
+      text-decoration: none;
+    }
+    .promo-btns .btn-wht:hover {
+      background: var(--navy);
+      color: #fff;
+    }
+    .promo-btns .btn-border-w {
+      background: transparent;
+      border: 2px solid rgba(255,255,255,.4);
+      color: #fff;
+      padding: 9px 26px;
+      border-radius: 50px;
+      font-size: .86rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      transition: var(--tr);
+      cursor: pointer;
+      text-decoration: none;
+    }
+    .promo-btns .btn-border-w:hover { border-color: #fff; background: rgba(255,255,255,.1); }
+
+    /* --- HOW IT WORKS --- */
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(4,1fr);
+      gap: 1px;
+      background: var(--border);
+      border-radius: 18px;
+      overflow: hidden;
+    }
+    .step {
+      background: var(--card);
+      padding: 30px 24px;
+      text-align: center;
+      transition: var(--tr);
+      position: relative;
+    }
+    .step:hover { background: var(--card2); }
+    .step-n {
+      width: 48px; height: 48px;
+      border-radius: 50%;
+      background: rgba(230,57,70,.12);
+      border: 2px solid var(--red);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.05rem;
+      font-weight: 900;
+      color: var(--red);
+      margin: 0 auto 16px;
+      transition: var(--tr);
+    }
+    .step:hover .step-n { background: var(--red); color: #fff; }
+    .step h3 { font-size: .9rem; font-weight: 700; margin-bottom: 7px; }
+    .step p { font-size: .78rem; color: var(--gray); line-height: 1.65; }
+
+    /* --- REVIEWS SLIDER --- */
+    .rev-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 26px;
+      height: auto;
+      transition: var(--tr);
+    }
+    .rev-card:hover {
+      border-color: rgba(230,57,70,.3);
+      box-shadow: var(--shadow-lg);
+    }
+    .rev-q { font-size: 2.5rem; color: rgba(230,57,70,.25); line-height: .8; margin-bottom: 6px; font-family: Georgia, serif; }
+    .stars { color: var(--yellow); font-size: .82rem; margin-bottom: 12px; letter-spacing: 1px; }
+    .rev-text { font-size: .83rem; color: var(--light); line-height: 1.75; margin-bottom: 18px; }
+    .rev-user { display: flex; align-items: center; gap: 11px; }
+    .rev-avatar {
+      width: 40px; height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: .9rem;
+      flex-shrink: 0;
+    }
+    .rev-name { font-size: .86rem; font-weight: 700; }
+    .rev-loc { font-size: .72rem; color: var(--gray); }
+
+    /* Rating Summary Row */
+    .rating-row {
+      display: flex;
+      align-items: center;
+      gap: 40px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 32px 36px;
+      margin-bottom: 36px;
+      flex-wrap: wrap;
+    }
+    .rating-big { text-align: center; flex-shrink: 0; }
+    .rating-big .rn { font-size: 4rem; font-weight: 900; color: var(--yellow); line-height: 1; }
+    .rating-big .rs { font-size: 1rem; color: var(--yellow); letter-spacing: 2px; margin: 5px 0 3px; }
+    .rating-big p { font-size: .74rem; color: var(--gray); }
+    .rating-bars { flex: 1; min-width: 180px; }
+    .rbar-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 9px;
+    }
+    .rbar-row span { font-size: .74rem; color: var(--gray); width: 26px; flex-shrink: 0; }
+    .rbar-bg {
+      flex: 1; height: 5px;
+      background: var(--border);
+      border-radius: 3px;
+      overflow: hidden;
+    }
+    .rbar-fill { height: 100%; background: var(--yellow); border-radius: 3px; }
+
+    /* --- RESPONSIVE HOME --- */
+    @media (max-width: 1024px) {
+      .hero-inner { grid-template-columns: 1fr; text-align: center; }
+      .hero-desc { margin-inline: auto; }
+      .hero-btns { justify-content: center; }
+      .hero-stats { margin-inline: auto; }
+      .hero-right { display: none; }
+      .promo-band { grid-template-columns: 1fr; }
+      .promo-btns { flex-direction: row; flex-wrap: wrap; }
+      .steps-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 600px) {
+      .steps-grid { grid-template-columns: 1fr; }
+      .rating-row { flex-direction: column; gap: 20px; }
+      .hero-stats { grid-template-columns: repeat(3,1fr); }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ======== TOP BAR ======== -->
+<div class="topbar">
+  <div class="container">
+    <div class="topbar-l">
+      <a href="tel:+923070021000"><i class="fas fa-phone"></i> +92 307 002 1000</a>
+      <a href="mailto:alwajidlaptops@gmail.com"><i class="fas fa-envelope"></i> alwajidlaptops@gmail.com</a>
+    </div>
+    <div class="topbar-r">
+      <a href="#"><i class="far fa-clock"></i> Mon–Sun: 11AM – 10PM</a>
+      <a href="#"><i class="fas fa-map-marker-alt"></i> DHA Ghazi Road, Lahore</a>
+    </div>
+  </div>
+</div>
+
+<!-- ======== NAVBAR ======== -->
+<nav class="navbar">
+  <div class="container">
+    <div class="nav-inner">
+      <a href="index.html" class="logo">
+        <div class="logo-box">💻</div>
+        <div class="logo-txt">
+          <strong>Al Wajid Laptops</strong>
+          <span>Used Laptops Big Shop · Lahore</span>
+        </div>
+      </a>
+      <ul class="nav-menu">
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="products.html">Products</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <div class="nav-cta-d">
+        <a href="https://wa.me/923070021000" class="btn btn-wa" target="_blank" rel="noopener">
+          <i class="fab fa-whatsapp"></i> WhatsApp
+        </a>
+      </div>
+      <div class="hamburger" onclick="openMob()">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- Mobile Nav -->
+<div class="mob-nav" id="mobNav">
+  <span class="mob-close" onclick="closeMob()"><i class="fas fa-times"></i></span>
+  <a href="index.html" onclick="closeMob()">Home</a>
+  <a href="products.html" onclick="closeMob()">Products</a>
+  <a href="about.html" onclick="closeMob()">About</a>
+  <a href="contact.html" onclick="closeMob()">Contact</a>
+  <a href="https://wa.me/923070021000" class="btn btn-wa" target="_blank" onclick="closeMob()">
+    <i class="fab fa-whatsapp"></i> WhatsApp Us
+  </a>
+</div>
+
+<!-- ======== HERO ======== -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-inner">
+      <!-- Left -->
+      <div>
+        <div class="hero-eyebrow"><span class="pulse"></span> Lahore's #1 Trusted Used Laptop Store</div>
+        <h1>Premium <span class="r">Used Laptops</span><br>at Lahore's<br><span class="y">Lowest Prices</span></h1>
+        <p class="hero-desc">Dell, HP, Lenovo, Sony Vaio &amp; more — non-painted, non-repaired, imported stock with 30-day warranty and 6-month free after-sale service.</p>
+        <div class="hero-btns">
+          <a href="products.html" class="btn btn-red"><i class="fas fa-laptop"></i> View All Laptops</a>
+          <a href="https://wa.me/923070021000" class="btn btn-outline" target="_blank"><i class="fab fa-whatsapp"></i> Chat Now</a>
+        </div>
+        <div class="hero-stats">
+          <div class="h-stat"><div class="h-stat-num">500+</div><div class="h-stat-lbl">Sold</div></div>
+          <div class="h-stat"><div class="h-stat-num">30D</div><div class="h-stat-lbl">Warranty</div></div>
+          <div class="h-stat"><div class="h-stat-num">6M</div><div class="h-stat-lbl">Free Service</div></div>
+        </div>
+      </div>
+      <!-- Right -->
+      <div class="hero-right">
+        <div class="fpill fpill-1">
+          <span class="fpill-lbl">Today's Deal</span>
+          <span class="fpill-val g">✓ In Stock Now</span>
+        </div>
+        <div class="fpill fpill-2">
+          <span class="fpill-lbl">Best Seller</span>
+          <span class="fpill-val y">★ Dell i7 — ₨43,500</span>
+        </div>
+        <div class="hero-main-card">
+          <div class="hc-img">
+            <img src="https://i.dell.com/is/image/DellContent/content/dam/images/products/laptops/latitude/latitude-12-7270/global-spi/laptop-latitude-12-7270-campaign-hero-504x350-ng.jpg" alt="Dell Latitude E7270"/>
+          </div>
+          <div class="hc-title">Dell Latitude E7270 / 7280</div>
+          <div class="hc-chips">
+            <span class="chip">Core i7 6th Gen</span>
+            <span class="chip">8GB DDR4</span>
+            <span class="chip">256GB SSD</span>
+            <span class="chip">13" FHD</span>
+          </div>
+          <div class="hc-foot">
+            <div class="hc-price">₨ 43,500</div>
+            <span class="badge badge-stock">In Stock</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======== BRAND MARQUEE ======== -->
+<div class="marquee-wrap">
+  <div class="marquee-track">
+    <div class="m-brand"><i class="fas fa-circle-dot"></i> Dell</div>
+    <div class="m-brand"><i class="fas fa-circle-dot"></i> HP EliteBook</div>
+    <div class="m-brand"><i class="fas fa-circle-dot"></i> Lenovo ThinkPad</div>
+    <div class="m-brand"><i class="fas fa-circle-dot"></i> Sony Vaio</div>
+    <div class="m-brand"><i class="fas fa-circle-dot"></i> 30 Days Warranty</div>
+    <div class="m-brand"><i class="fas fa-circle-dot"></i> Non-Painted Stock</div>
+    <div class="m-brand"><i class="fas fa-circle-dot"></i> 6 Months Free Service</div>
+    <div class="m-brand"><i class="fas fa-circle-dot"></i> Toshiba</div>
+    <div class="m-brand"><i class="fas fa-circle-dot"></i> Dell</div>
+    <div class="m-brand"><i class="fas fa-circle-dot"></i> HP EliteBook</div>
+    <div class="m-brand"><i class="fas fa-circle-dot"></i> Lenovo ThinkPad</div>
+    <div class="m-brand"><i class="fas fa-circle-dot"></i> Sony Vaio</div>
+    <div class="m-brand"><i class="fas fa-circle-dot"></i> 30 Days Warranty</div>
+    <div class="m-brand"><i class="fas fa-circle-dot"></i> Non-Painted Stock</div>
+    <div class="m-brand"><i class="fas fa-circle-dot"></i> 6 Months Free Service</div>
+    <div class="m-brand"><i class="fas fa-circle-dot"></i> Toshiba</div>
+  </div>
+</div>
+
+<!-- ======== WHY CHOOSE US ======== -->
+<section class="section section-alt">
+  <div class="container">
+    <div class="sec-head">
+      <h2 class="sec-title">Why Choose <span>Al Wajid?</span></h2>
+    </div>
+    <p class="sec-sub center">Lahore's most trusted used laptop store — quality, transparency & after-sale care all in one place.</p>
+    <div class="feat-grid">
+      <div class="feat-card">
+        <div class="feat-icon"><i class="fas fa-shield-halved"></i></div>
+        <h3>30-Day Warranty</h3>
+        <p>Every laptop backed by a full 30-day Al Wajid warranty — we stand behind every product we sell.</p>
+      </div>
+      <div class="feat-card">
+        <div class="feat-icon"><i class="fas fa-screwdriver-wrench"></i></div>
+        <h3>6-Month Free Service</h3>
+        <p>6 months of complimentary after-sale service included with every purchase — no hidden charges.</p>
+      </div>
+      <div class="feat-card">
+        <div class="feat-icon"><i class="fas fa-ban"></i></div>
+        <h3>Non-Painted Stock</h3>
+        <p>We only sell genuine non-painted, non-repaired laptops. What you see is exactly what you get.</p>
+      </div>
+      <div class="feat-card">
+        <div class="feat-icon"><i class="fas fa-tags"></i></div>
+        <h3>Transparent Pricing</h3>
+        <p>Prices are clearly listed on our website for all in-stock laptops. No hidden costs — ever.</p>
+      </div>
+      <div class="feat-card">
+        <div class="feat-icon"><i class="fas fa-rotate"></i></div>
+        <h3>Live Stock Updates</h3>
+        <p>Website updated regularly with real-time availability — so you never waste a visit.</p>
+      </div>
+      <div class="feat-card">
+        <div class="feat-icon"><i class="fas fa-plane-arrival"></i></div>
+        <h3>Imported Stock Only</h3>
+        <p>All laptops are imported — not locally used — ensuring superior condition and quality.</p>
+      </div>
+      <div class="feat-card">
+        <div class="feat-icon"><i class="fab fa-whatsapp"></i></div>
+        <h3>Instant WhatsApp</h3>
+        <p>Reach us on WhatsApp anytime for queries, pricing, and reservations — fast friendly service.</p>
+      </div>
+      <div class="feat-card">
+        <div class="feat-icon"><i class="fas fa-store"></i></div>
+        <h3>Physical Walk-In Store</h3>
+        <p>Visit our DHA Ghazi Road Lahore store, 7 days a week, 11AM–10PM for hands-on inspection.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======== FEATURED PRODUCTS SLIDER ======== -->
+<section class="section">
+  <div class="container">
+    <div class="sec-head" style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;flex-wrap:wrap;gap:12px;">
+      <h2 class="sec-title" style="margin-bottom:0">Featured <span>Laptops</span></h2>
+      <a href="products.html" class="btn btn-outline btn-sm"><i class="fas fa-arrow-right"></i> View All</a>
+    </div>
+    <p class="sec-sub" style="margin-bottom:28px">Handpicked from our latest imported stock — best value for money.</p>
+
+    <div class="swiper swiper-prod" id="prodSwiper">
+      <div class="swiper-wrapper">
+
+        <!-- Card 1 -->
+        <div class="swiper-slide">
+          <div class="prod-card">
+            <div class="prod-img">
+              <img src="https://i.dell.com/is/image/DellContent/content/dam/images/products/laptops/latitude/latitude-12-7270/global-spi/laptop-latitude-12-7270-campaign-hero-504x350-ng.jpg" alt="Dell Latitude E7270"/>
+              <div class="prod-img-overlay"></div>
+              <div class="prod-badges"><span class="badge badge-stock">In Stock</span><span class="badge badge-hot">Best Seller</span></div>
+              <span class="prod-brand-tag">Dell</span>
+            </div>
+            <div class="prod-body">
+              <h3>Dell Latitude E7270 / 7280</h3>
+              <div class="prod-specs">
+                <div class="spec-item"><i class="fas fa-microchip"></i> Core i7 6th Gen</div>
+                <div class="spec-item"><i class="fas fa-memory"></i> 8GB DDR4 | Up to 32GB</div>
+                <div class="spec-item"><i class="fas fa-hard-drive"></i> 256GB SSD | Up to 1TB</div>
+                <div class="spec-item"><i class="fas fa-display"></i> 13" Full HD 1920×1080</div>
+                <div class="spec-item"><i class="fas fa-keyboard"></i> Backlit Keyboard</div>
+              </div>
+            </div>
+            <div class="prod-foot">
+              <div class="prod-price">₨ 43,500<small>30d Warranty Included</small></div>
+              <div class="prod-actions">
+                <a href="https://alwajidlaptops.com/product/dell-latitude-e7270-core-i7-6th-generation/" target="_blank" class="icon-btn" title="Details"><i class="fas fa-eye"></i></a>
+                <a href="https://wa.me/923070021000?text=Hi! I want Dell Latitude E7270 i7 – PKR 43,500" target="_blank" class="icon-btn wa" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="swiper-slide">
+          <div class="prod-card">
+            <div class="prod-img">
+              <img src="https://support.hp.com/doc-images/700/c08113936.png" alt="HP EliteBook 845 G8"/>
+              <div class="prod-img-overlay"></div>
+              <div class="prod-badges"><span class="badge badge-stock">In Stock</span><span class="badge badge-new">Ryzen 5</span></div>
+              <span class="prod-brand-tag">HP</span>
+            </div>
+            <div class="prod-body">
+              <h3>HP EliteBook 845 G8</h3>
+              <div class="prod-specs">
+                <div class="spec-item"><i class="fas fa-microchip"></i> AMD Ryzen 5 5650u Hexa Core</div>
+                <div class="spec-item"><i class="fas fa-memory"></i> 8GB DDR4 RAM</div>
+                <div class="spec-item"><i class="fas fa-hard-drive"></i> 256GB SSD NVMe</div>
+                <div class="spec-item"><i class="fas fa-display"></i> 14" Full HD IPS</div>
+                <div class="spec-item"><i class="fas fa-shield-halved"></i> EliteBook Grade Build</div>
+              </div>
+            </div>
+            <div class="prod-foot">
+              <div class="prod-price">₨ 75,000<small>30d Warranty Included</small></div>
+              <div class="prod-actions">
+                <a href="https://alwajidlaptops.com/product/hp-elitebook-845-g8-ryzen-5/" target="_blank" class="icon-btn"><i class="fas fa-eye"></i></a>
+                <a href="https://wa.me/923070021000?text=Hi! I want HP EliteBook 845 G8 Ryzen 5 – PKR 75,000" target="_blank" class="icon-btn wa"><i class="fab fa-whatsapp"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="swiper-slide">
+          <div class="prod-card">
+            <div class="prod-img">
+              <img src="https://p1-ofp.static.pub/fes/cms/2022/09/07/0x2lvj4yfhbbrslpxbqq7yq6dg0e0i531451.png" alt="Lenovo ThinkPad Yoga 260"/>
+              <div class="prod-img-overlay"></div>
+              <div class="prod-badges"><span class="badge badge-stock">In Stock</span><span class="badge badge-new">2-in-1 Touch</span></div>
+              <span class="prod-brand-tag">Lenovo</span>
+            </div>
+            <div class="prod-body">
+              <h3>ThinkPad Yoga 260 x360</h3>
+              <div class="prod-specs">
+                <div class="spec-item"><i class="fas fa-microchip"></i> Core i5 6th Gen – 2.40GHz</div>
+                <div class="spec-item"><i class="fas fa-memory"></i> 8GB DDR4 RAM</div>
+                <div class="spec-item"><i class="fas fa-hard-drive"></i> 256GB M.2 SSD</div>
+                <div class="spec-item"><i class="fas fa-display"></i> 13" Touch + Stylus Pen</div>
+                <div class="spec-item"><i class="fas fa-rotate"></i> Full 360° Convertible</div>
+              </div>
+            </div>
+            <div class="prod-foot">
+              <div class="prod-price">₨ 42,500<small>30d Warranty Included</small></div>
+              <div class="prod-actions">
+                <a href="https://alwajidlaptops.com/product/thinkpad-lenovo-yoga-260-x360-touch-screen-core-i3-6th-generation/" target="_blank" class="icon-btn"><i class="fas fa-eye"></i></a>
+                <a href="https://wa.me/923070021000?text=Hi! I want Lenovo Yoga 260 x360 – PKR 42,500" target="_blank" class="icon-btn wa"><i class="fab fa-whatsapp"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="swiper-slide">
+          <div class="prod-card">
+            <div class="prod-img">
+              <img src="https://www.sony.com/image/5c52bdacd47f8d1a8c9e9be50f0a59f1?fmt=png-alpha&wid=330" alt="Sony Vaio"/>
+              <div class="prod-img-overlay"></div>
+              <div class="prod-badges"><span class="badge badge-stock">In Stock</span><span class="badge badge-new">Japanese</span></div>
+              <span class="prod-brand-tag">Sony</span>
+            </div>
+            <div class="prod-body">
+              <h3>Sony Vaio VJPG – Japanese Import</h3>
+              <div class="prod-specs">
+                <div class="spec-item"><i class="fas fa-microchip"></i> Core i5 10th Generation</div>
+                <div class="spec-item"><i class="fas fa-memory"></i> 8GB DDR4 RAM</div>
+                <div class="spec-item"><i class="fas fa-hard-drive"></i> 256GB NVMe SSD</div>
+                <div class="spec-item"><i class="fas fa-display"></i> 14.1" Anti-Glare LED</div>
+                <div class="spec-item"><i class="fas fa-plane-arrival"></i> Direct Japanese Import</div>
+              </div>
+            </div>
+            <div class="prod-foot">
+              <div class="prod-price">₨ 62,500<small>30d Warranty Included</small></div>
+              <div class="prod-actions">
+                <a href="https://alwajidlaptops.com/product/sony-vaio-core-i5-10th-generation-vjpg-japanese-laptop-as-low-price/" target="_blank" class="icon-btn"><i class="fas fa-eye"></i></a>
+                <a href="https://wa.me/923070021000?text=Hi! I want Sony Vaio VJPG i5 10th Gen – PKR 62,500" target="_blank" class="icon-btn wa"><i class="fab fa-whatsapp"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 5 -->
+        <div class="swiper-slide">
+          <div class="prod-card">
+            <div class="prod-img">
+              <img src="https://psrefimages.lenovo.com/id/a39ec01c-25ab-4a83-acc8-ca80dc8b2e4b/e495-1-1200x800.png" alt="Lenovo E495"/>
+              <div class="prod-img-overlay"></div>
+              <div class="prod-badges"><span class="badge badge-stock">In Stock</span><span class="badge badge-hot">GPU</span></div>
+              <span class="prod-brand-tag">Lenovo</span>
+            </div>
+            <div class="prod-body">
+              <h3>ThinkPad E495 / T495 / L495</h3>
+              <div class="prod-specs">
+                <div class="spec-item"><i class="fas fa-microchip"></i> AMD Ryzen 5 3500u</div>
+                <div class="spec-item"><i class="fas fa-memory"></i> 8GB DDR4 RAM</div>
+                <div class="spec-item"><i class="fas fa-display"></i> 14.1" Full HD</div>
+                <div class="spec-item"><i class="fas fa-gamepad"></i> 2GB Dedicated GPU</div>
+              </div>
+            </div>
+            <div class="prod-foot">
+              <div class="prod-price">₨ 55,000<small>30d Warranty Included</small></div>
+              <div class="prod-actions">
+                <a href="https://alwajidlaptops.com/product/thinkpad-lenovo-ryzen-5-3500u-2gb-dedicated-graphic-carde495-t495-l495/" target="_blank" class="icon-btn"><i class="fas fa-eye"></i></a>
+                <a href="https://wa.me/923070021000?text=Hi! I want Lenovo E495 Ryzen 5 2GB GPU – PKR 55,000" target="_blank" class="icon-btn wa"><i class="fab fa-whatsapp"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 6 -->
+        <div class="swiper-slide">
+          <div class="prod-card">
+            <div class="prod-img">
+              <img src="https://h30434.www3.hp.com/t5/image/serverpage/image-id/310028i1CD7B5ADD9A23B97/image-size/large?v=v2&px=999" alt="HP ProBook 4540s"/>
+              <div class="prod-img-overlay"></div>
+              <div class="prod-badges"><span class="badge badge-stock">In Stock</span></div>
+              <span class="prod-brand-tag">HP</span>
+            </div>
+            <div class="prod-body">
+              <h3>HP ProBook 4540s</h3>
+              <div class="prod-specs">
+                <div class="spec-item"><i class="fas fa-microchip"></i> Core i5 3rd Gen – 2.50GHz</div>
+                <div class="spec-item"><i class="fas fa-memory"></i> 4GB DDR3 | Up to 8GB</div>
+                <div class="spec-item"><i class="fas fa-hard-drive"></i> 320GB SATA | Up to 1TB</div>
+                <div class="spec-item"><i class="fas fa-display"></i> 15.6" HD Display</div>
+                <div class="spec-item"><i class="fab fa-windows"></i> Windows 10 Activated</div>
+              </div>
+            </div>
+            <div class="prod-foot">
+              <div class="prod-price">₨ 30,000<small>30d Warranty Included</small></div>
+              <div class="prod-actions">
+                <a href="https://alwajidlaptops.com/product/hp-probook-4540s-core-i3-3rd-generation/" target="_blank" class="icon-btn"><i class="fas fa-eye"></i></a>
+                <a href="https://wa.me/923070021000?text=Hi! I want HP ProBook 4540s i5 – PKR 30,000" target="_blank" class="icon-btn wa"><i class="fab fa-whatsapp"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <div class="swiper-pagination"></div>
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-button-next"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ======== PROMO BANNER ======== -->
+<section class="section section-alt">
+  <div class="container">
+    <div class="promo-band">
+      <div class="promo-txt">
+        <span class="promo-tag">🔥 Special Offer</span>
+        <h2>Can't Find Your<br>Dream Laptop? We'll Source It!</h2>
+        <p>Tell us the exact model, specs, and your budget. Our team will find it for you from our latest imported stock — usually within days.</p>
+      </div>
+      <div class="promo-btns">
+        <a href="https://wa.me/923070021000?text=Hi! I'm looking for a specific laptop." target="_blank" class="btn-wht">
+          <i class="fab fa-whatsapp"></i> WhatsApp Now
+        </a>
+        <a href="tel:+923070021000" class="btn-border-w">
+          <i class="fas fa-phone"></i> Call Us
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======== HOW IT WORKS ======== -->
+<section class="section">
+  <div class="container">
+    <div class="sec-head">
+      <h2 class="sec-title">How It <span>Works</span></h2>
+    </div>
+    <p class="sec-sub center">Simple, transparent, and completely hassle-free — from browsing to buying.</p>
+    <div class="steps-grid">
+      <div class="step">
+        <div class="step-n">01</div>
+        <h3>Browse Online</h3>
+        <p>Explore our full laptop catalogue with specs, prices, and stock status updated daily.</p>
+      </div>
+      <div class="step">
+        <div class="step-n">02</div>
+        <h3>Contact on WhatsApp</h3>
+        <p>Message us to confirm availability, ask questions, or reserve your laptop instantly.</p>
+      </div>
+      <div class="step">
+        <div class="step-n">03</div>
+        <h3>Visit Our Store</h3>
+        <p>Come to our Lahore store and physically inspect & test the laptop before purchasing.</p>
+      </div>
+      <div class="step">
+        <div class="step-n">04</div>
+        <h3>Buy with Warranty</h3>
+        <p>Complete your purchase and get 30-day warranty + 6-month free after-sale service card.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======== REVIEWS SLIDER ======== -->
+<section class="section section-alt">
+  <div class="container">
+    <div class="sec-head">
+      <h2 class="sec-title">Customer <span>Reviews</span></h2>
+    </div>
+    <p class="sec-sub center">Hundreds of satisfied customers across Lahore and beyond trust Al Wajid Laptops.</p>
+
+    <!-- Rating Summary -->
+    <div class="rating-row">
+      <div class="rating-big">
+        <div class="rn">4.8</div>
+        <div class="rs">★★★★★</div>
+        <p>200+ Reviews</p>
+      </div>
+      <div class="rating-bars">
+        <div class="rbar-row"><span>5★</span><div class="rbar-bg"><div class="rbar-fill" style="width:85%"></div></div><span style="color:#fff;">85%</span></div>
+        <div class="rbar-row"><span>4★</span><div class="rbar-bg"><div class="rbar-fill" style="width:10%"></div></div><span style="color:#fff;">10%</span></div>
+        <div class="rbar-row"><span>3★</span><div class="rbar-bg"><div class="rbar-fill" style="width:3%"></div></div><span style="color:#fff;">3%</span></div>
+        <div class="rbar-row"><span>2★</span><div class="rbar-bg"><div class="rbar-fill" style="width:1%"></div></div><span style="color:#fff;">1%</span></div>
+        <div class="rbar-row"><span>1★</span><div class="rbar-bg"><div class="rbar-fill" style="width:1%"></div></div><span style="color:#fff;">1%</span></div>
+      </div>
+    </div>
+
+    <!-- Reviews Swiper -->
+    <div class="swiper" id="revSwiper" style="padding-bottom:42px">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">
+          <div class="rev-card">
+            <div class="rev-q">"</div>
+            <div class="stars">★★★★★</div>
+            <p class="rev-text">Bought the Dell i7 E7270 — absolutely amazing condition. Non-painted, runs perfectly. The 6-month free service is genuine — they actually honor it. Highly recommend!</p>
+            <div class="rev-user">
+              <div class="rev-avatar" style="background:#e63946">AK</div>
+              <div><div class="rev-name">Ahmed Khan</div><div class="rev-loc">DHA Phase 5, Lahore</div></div>
+            </div>
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="rev-card">
+            <div class="rev-q">"</div>
+            <div class="stars">★★★★★</div>
+            <p class="rev-text">Sony Vaio Japanese import — excellent NVMe SSD speed and super clean build. Prices matched exactly what was on the website. No hidden charges whatsoever. 10/10!</p>
+            <div class="rev-user">
+              <div class="rev-avatar" style="background:#f59e0b">SK</div>
+              <div><div class="rev-name">Sara Khan</div><div class="rev-loc">Johar Town, Lahore</div></div>
+            </div>
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="rev-card">
+            <div class="rev-q">"</div>
+            <div class="stars">★★★★★</div>
+            <p class="rev-text">Lenovo E495 Ryzen 5 with dedicated GPU — perfect for my graphic design work! WhatsApp response was instant. Staff was very knowledgeable. Best laptop shop in Lahore!</p>
+            <div class="rev-user">
+              <div class="rev-avatar" style="background:#10b981">UM</div>
+              <div><div class="rev-name">Usman Malik</div><div class="rev-loc">Model Town, Lahore</div></div>
+            </div>
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="rev-card">
+            <div class="rev-q">"</div>
+            <div class="stars">★★★★★</div>
+            <p class="rev-text">HP EliteBook 845 G8 Ryzen 5 is running smoothly for my office work. Price on website was exactly what I paid. No surprises. Excellent warranty policy. Will buy again!</p>
+            <div class="rev-user">
+              <div class="rev-avatar" style="background:#3b82f6">FA</div>
+              <div><div class="rev-name">Fatima Akhtar</div><div class="rev-loc">Gulberg, Lahore</div></div>
+            </div>
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="rev-card">
+            <div class="rev-q">"</div>
+            <div class="stars">★★★★☆</div>
+            <p class="rev-text">Dell 5290 2-in-1 touchscreen — great for student use. Very helpful staff explaining specifications clearly. Minor issue was resolved under warranty same day. Happy customer!</p>
+            <div class="rev-user">
+              <div class="rev-avatar" style="background:#8b5cf6">ZH</div>
+              <div><div class="rev-name">Zain Hassan</div><div class="rev-loc">Bahria Town, Lahore</div></div>
+            </div>
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="rev-card">
+            <div class="rev-q">"</div>
+            <div class="stars">★★★★★</div>
+            <p class="rev-text">Came from Multan specially to buy a laptop. Online stock status was 100% accurate. They had exactly what was listed. Worth every km of the journey. Will come again!</p>
+            <div class="rev-user">
+              <div class="rev-avatar" style="background:#e67e22">MR</div>
+              <div><div class="rev-name">Muhammad Raza</div><div class="rev-loc">Multan (visited Lahore)</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="swiper-pagination"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ======== FOOTER ======== -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-about">
+        <a href="index.html" class="logo">
+          <div class="logo-box" style="width:36px;height:36px;font-size:1rem">💻</div>
+          <div class="logo-txt"><strong>Al Wajid Laptops</strong><span>Used Laptops Big Shop</span></div>
+        </a>
+        <p>Lahore's most trusted used laptop store. Premium quality, non-painted, non-repaired imported laptops with 30-day warranty &amp; 6-month free after-sale service.</p>
+        <div class="footer-social">
+          <a href="https://wa.me/923070021000" target="_blank" class="soc-btn" style="color:#25d366"><i class="fab fa-whatsapp"></i></a>
+          <a href="https://facebook.com/p/Al-Wajid-Laptops-100064248872372" target="_blank" class="soc-btn" style="color:#1877f2"><i class="fab fa-facebook-f"></i></a>
+          <a href="mailto:alwajidlaptops@gmail.com" class="soc-btn"><i class="fas fa-envelope"></i></a>
+          <a href="tel:+923070021000" class="soc-btn"><i class="fas fa-phone"></i></a>
+        </div>
+      </div>
+      <div>
+        <h4>Quick Links</h4>
+        <ul class="footer-links">
+          <li><a href="index.html"><i class="fas fa-chevron-right"></i> Home</a></li>
+          <li><a href="products.html"><i class="fas fa-chevron-right"></i> Products</a></li>
+          <li><a href="about.html"><i class="fas fa-chevron-right"></i> About Us</a></li>
+          <li><a href="contact.html"><i class="fas fa-chevron-right"></i> Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Shop By Brand</h4>
+        <ul class="footer-links">
+          <li><a href="products.html"><i class="fas fa-chevron-right"></i> Dell Laptops</a></li>
+          <li><a href="products.html"><i class="fas fa-chevron-right"></i> HP Laptops</a></li>
+          <li><a href="products.html"><i class="fas fa-chevron-right"></i> Lenovo ThinkPad</a></li>
+          <li><a href="products.html"><i class="fas fa-chevron-right"></i> Sony Vaio</a></li>
+          <li><a href="products.html"><i class="fas fa-chevron-right"></i> All Brands</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact Info</h4>
+        <div class="footer-cinfo">
+          <div class="f-ci"><i class="fas fa-map-marker-alt"></i><span>DHA Ghazi Road, Shoukat Town, Lahore, Punjab</span></div>
+          <div class="f-ci"><i class="fas fa-phone"></i><span>+92 307 002 1000<br>+92 303 408 2013<br>+92 313 411 1661</span></div>
+          <div class="f-ci"><i class="fas fa-envelope"></i><span>alwajidlaptops@gmail.com</span></div>
+          <div class="f-ci"><i class="far fa-clock"></i><span>Mon–Sun: 11:00 AM – 10:00 PM</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 <span>Al Wajid Laptops</span>. All Rights Reserved.</p>
+      <p>Built for Lahore's Best Laptop Shop ❤️</p>
+    </div>
+  </div>
+</footer>
+
+<!-- WhatsApp Float -->
+<a href="https://wa.me/923070021000" target="_blank" class="wa-float">
+  <i class="fab fa-whatsapp"></i> WhatsApp Us
+</a>
+<!-- Scroll Top -->
+<button class="scroll-top-btn" id="stb" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+  <i class="fas fa-arrow-up"></i>
+</button>
+
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script>
+  // Mobile nav
+  function openMob()  { document.getElementById('mobNav').classList.add('open'); }
+  function closeMob() { document.getElementById('mobNav').classList.remove('open'); }
+
+  // Scroll top
+  window.addEventListener('scroll', () => {
+    document.getElementById('stb').classList.toggle('show', window.scrollY > 350);
+  });
+
+  // Products Swiper
+  new Swiper('#prodSwiper', {
+    slidesPerView: 1,
+    spaceBetween: 20,
+    grabCursor: true,
+    pagination: { el: '.swiper-pagination', clickable: true, dynamicBullets: true },
+    navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' },
+    breakpoints: {
+      600:  { slidesPerView: 2 },
+      900:  { slidesPerView: 3 },
+      1100: { slidesPerView: 3 }
+    }
+  });
+
+  // Reviews Swiper
+  new Swiper('#revSwiper', {
+    slidesPerView: 1,
+    spaceBetween: 20,
+    grabCursor: true,
+    autoplay: { delay: 4500, disableOnInteraction: false },
+    pagination: { el: '.swiper-pagination', clickable: true, dynamicBullets: true },
+    breakpoints: {
+      640:  { slidesPerView: 2 },
+      1000: { slidesPerView: 3 }
+    }
+  });
+</script>
+</body>
+</html>
