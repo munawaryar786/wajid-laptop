@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Products – Al Wajid Laptops</title>
+  <link rel="stylesheet" href="style.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <style>
+    /* ====== PRODUCTS PAGE STYLES ====== */
+    .filter-bar {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 18px 22px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 32px;
+    }
+    .filter-label {
+      font-size: .78rem;
+      font-weight: 700;
+      color: var(--gray);
+      text-transform: uppercase;
+      letter-spacing: .5px;
+      flex-shrink: 0;
+    }
+    .filter-tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+    }
+    .ftab {
+      padding: 7px 16px;
+      border-radius: 50px;
+      background: rgba(255,255,255,.05);
+      border: 1px solid var(--border);
+      color: var(--gray);
+      font-size: .8rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: var(--tr);
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+    .ftab:hover, .ftab.on {
+      background: var(--red);
+      border-color: var(--red);
+      color: #fff;
+    }
+    .filter-count {
+      margin-left: auto;
+      font-size: .78rem;
+      color: var(--gray);
+      flex-shrink: 0;
+    }
+    .filter-count span { color: var(--red); font-weight: 700; }
+
+    .prod-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+      gap: 20px;
+    }
+    .prod-card { transition: var(--tr); }
+    .prod-card[data-hidden="true"] { display: none; }
+
+    /* Price range display */
+    .price-range-wrap { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+    .price-range-wrap label { font-size: .78rem; color: var(--gray); }
+    .price-range-wrap select {
+      background: rgba(255,255,255,.05);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 6px 10px;
+      color: var(--white);
+      font-size: .78rem;
+      outline: none;
+    }
+    .price-range-wrap select option { background: var(--navy2); }
+
+    /* No results */
+    .no-results {
+      grid-column: 1 / -1;
+      text-align: center;
+      padding: 60px 20px;
+      color: var(--gray);
+    }
+    .no-results i { font-size: 3rem; color: var(--border); margin-bottom: 14px; }
+    .no-results p { font-size: .9rem; }
+
+    @media (max-width: 600px) {
+      .filter-bar { flex-direction: column; align-items: flex-start; }
+      .filter-count { margin-left: 0; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="topbar">
+  <div class="container">
+    <div class="topbar-l">
+      <a href="tel:+923070021000"><i class="fas fa-phone"></i> +92 307 002 1000</a>
+      <a href="mailto:alwajidlaptops@gmail.com"><i class="fas fa-envelope"></i> alwajidlaptops@gmail.com</a>
+    </div>
+    <div class="topbar-r">
+      <a href="#"><i class="far fa-clock"></i> Mon–Sun: 11AM – 10PM</a>
+      <a href="#"><i class="fas fa-map-marker-alt"></i> DHA Ghazi Road, Lahore</a>
+    </div>
+  </div>
+</div>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+  <div class="container">
+    <div class="nav-inner">
+      <a href="index.html" class="logo">
+        <div class="logo-box">💻</div>
+        <div class="logo-txt"><strong>Al Wajid Laptops</strong><span>Used Laptops Big Shop · Lahore</span></div>
+      </a>
+      <ul class="nav-menu">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="products.html" class="active">Products</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <div class="nav-cta-d">
+        <a href="https://wa.me/923070021000" class="btn btn-wa" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+      </div>
+      <div class="hamburger" onclick="openMob()"><span></span><span></span><span></span></div>
+    </div>
+  </div>
+</nav>
+<div class="mob-nav" id="mobNav">
+  <span class="mob-close" onclick="closeMob()"><i class="fas fa-times"></i></span>
+  <a href="index.html" onclick="closeMob()">Home</a>
+  <a href="products.html" onclick="closeMob()">Products</a>
+  <a href="about.html" onclick="closeMob()">About</a>
+  <a href="contact.html" onclick="closeMob()">Contact</a>
+  <a href="https://wa.me/923070021000" class="btn btn-wa" target="_blank" onclick="closeMob()"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+</div>
+
+<!-- PAGE HERO -->
+<div class="page-hero">
+  <div class="container">
+    <div class="breadcrumb"><a href="index.html">Home</a><i class="fas fa-chevron-right"></i><span>Products</span></div>
+    <h1>Our <span>Laptop</span> Collection</h1>
+    <p>Browse our full imported stock — Dell, HP, Lenovo, Sony & more. All non-painted, non-repaired with warranty.</p>
+  </div>
+</div>
+
+<!-- PRODUCTS SECTION -->
+<section class="section">
+  <div class="container">
+
+    <!-- Filter Bar -->
+    <div class="filter-bar">
+      <span class="filter-label"><i class="fas fa-filter"></i> Filter:</span>
+      <div class="filter-tabs">
+        <div class="ftab on" onclick="filter('all',this)"><i class="fas fa-th"></i> All</div>
+        <div class="ftab" onclick="filter('dell',this)">Dell</div>
+        <div class="ftab" onclick="filter('hp',this)">HP</div>
+        <div class="ftab" onclick="filter('lenovo',this)">Lenovo</div>
+        <div class="ftab" onclick="filter('sony',this)">Sony</div>
+        <div class="ftab" onclick="filter('other',this)">Other</div>
+        <div class="ftab" onclick="filter('instock',this)"><i class="fas fa-circle" style="color:#10b981;font-size:.5rem"></i> In Stock</div>
+      </div>
+      <div class="price-range-wrap">
+        <label>Sort:</label>
+        <select onchange="sortProducts(this.value)">
+          <option value="default">Default</option>
+          <option value="low">Price: Low to High</option>
+          <option value="high">Price: High to Low</option>
+        </select>
+      </div>
+      <div class="filter-count">Showing <span id="cnt">10</span> laptops</div>
+    </div>
+
+    <!-- Product Grid -->
+    <div class="prod-grid" id="grid">
+
+      <!-- Dell E7270 -->
+      <div class="prod-card" data-brand="dell" data-status="instock" data-price="43500">
+        <div class="prod-img">
+          <img src="https://i.dell.com/is/image/DellContent/content/dam/images/products/laptops/latitude/latitude-12-7270/global-spi/laptop-latitude-12-7270-campaign-hero-504x350-ng.jpg" alt="Dell Latitude E7270"/>
+          <div class="prod-img-overlay"></div>
+          <div class="prod-badges"><span class="badge badge-stock">In Stock</span><span class="badge badge-hot">Best Seller</span></div>
+          <span class="prod-brand-tag">Dell</span>
+        </div>
+        <div class="prod-body">
+          <h3>Dell Latitude E7270 / 7280</h3>
+          <div class="prod-specs">
+            <div class="spec-item"><i class="fas fa-microchip"></i> Core i7 6th Gen</div>
+            <div class="spec-item"><i class="fas fa-memory"></i> 8GB DDR4 | Up to 32GB</div>
+            <div class="spec-item"><i class="fas fa-hard-drive"></i> 256GB SSD | Up to 1TB</div>
+            <div class="spec-item"><i class="fas fa-display"></i> 13" Full HD 1920×1080</div>
+            <div class="spec-item"><i class="fas fa-keyboard"></i> Backlit Keyboard | HDMI | USB 3.0</div>
+          </div>
+        </div>
+        <div class="prod-foot">
+          <div class="prod-price">₨ 43,500<small>30d Warranty</small></div>
+          <div class="prod-actions">
+            <a href="https://alwajidlaptops.com/product/dell-latitude-e7270-core-i7-6th-generation/" target="_blank" class="icon-btn"><i class="fas fa-eye"></i></a>
+            <a href="https://wa.me/923070021000?text=Hi! I want Dell E7270 i7 – PKR 43,500" target="_blank" class="icon-btn wa"><i class="fab fa-whatsapp"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Dell 5290 2in1 -->
+      <div class="prod-card" data-brand="dell" data-status="instock" data-price="45000">
+        <div class="prod-img">
+          <img src="https://i.dell.com/is/image/DellContent/content/dam/images/products/laptops/latitude/latitude-5290/global-spi/img_5290_2in1_csh_hero_504x350.jpg" alt="Dell Latitude 5290"/>
+          <div class="prod-img-overlay"></div>
+          <div class="prod-badges"><span class="badge badge-stock">In Stock</span><span class="badge badge-new">2-in-1</span></div>
+          <span class="prod-brand-tag">Dell</span>
+        </div>
+        <div class="prod-body">
+          <h3>Dell Latitude 5290 / 5285 2-in-1</h3>
+          <div class="prod-specs">
+            <div class="spec-item"><i class="fas fa-microchip"></i> Core i5 8th Generation</div>
+            <div class="spec-item"><i class="fas fa-memory"></i> 8GB DDR4 RAM</div>
+            <div class="spec-item"><i class="fas fa-hard-drive"></i> 256GB SSD</div>
+            <div class="spec-item"><i class="fas fa-display"></i> 12.5" Touch Screen</div>
+            <div class="spec-item"><i class="fas fa-rotate"></i> 360° Convertible</div>
+          </div>
+        </div>
+        <div class="prod-foot">
+          <div class="prod-price">₨ 45,000<small>30d Warranty</small></div>
+          <div class="prod-actions">
+            <a href="https://alwajidlaptops.com/product/dell-latitude-5290-2in1-core-i5-8th-generation-touch-screen/" target="_blank" class="icon-btn"><i class="fas fa-eye"></i></a>
+            <a href="https://wa.me/923070021000?text=Hi! I want Dell 5290 2-in-1 i5 8th – PKR 45,000" target="_blank" class="icon-btn wa"><i class="fab fa-whatsapp"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Dell E5430 -->
+      <div class="prod-card" data-brand="dell" data-status="out" data-price="25000">
+        <div class="prod-img">
+          <img src="https://i.dell.com/is/image/DellContent/content/dam/images/products/laptops/latitude/e5430/global-spi/img_lat_e5430_nontouch_closed_img_504x350.jpg" alt="Dell Latitude E5430"/>
+          <div class="prod-img-overlay"></div>
+          <div class="prod-badges"><span class="badge badge-out">Out of Stock</span></div>
+          <span class="prod-brand-tag">Dell</span>
+        </div>
+        <div class="prod-body">
+          <h3>Dell Latitude E5430</h3>
+          <div class="prod-specs">
+            <div class="spec-item"><i class="fas fa-microchip"></i> Core i5 3rd Gen – 2.60GHz</div>
+            <div class="spec-item"><i class="fas fa-memory"></i> 4GB DDR3 RAM</div>
+            <div class="spec-item"><i class="fas fa-hard-drive"></i> 320GB SATA HDD</div>
+            <div class="spec-item"><i class="fas fa-display"></i> 14.1" HD LED</div>
+            <div class="spec-item"><i class="fas fa-compact-disc"></i> DVD RW Drive</div>
+          </div>
+        </div>
+        <div class="prod-foot">
+          <div class="prod-price na">Out of Stock</div>
+          <div class="prod-actions">
+            <a href="https://alwajidlaptops.com/product/dell-latitude-e5430/" target="_blank" class="icon-btn"><i class="fas fa-eye"></i></a>
+            <a href="https://wa.me/923070021000?text=Notify me when Dell E5430 is back in stock." target="_blank" class="icon-btn wa"><i class="fab fa-whatsapp"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Dell E6520 -->
+      <div class="prod-card" data-brand="dell" data-status="out" data-price="0">
+        <div class="prod-img">
+          <img src="https://i.dell.com/is/image/DellContent/content/dam/images/products/laptops/latitude/e6520/img_lat_e6520_heroall_504x350.jpg" alt="Dell Latitude E6520"/>
+          <div class="prod-img-overlay"></div>
+          <div class="prod-badges"><span class="badge badge-out">Out of Stock</span></div>
+          <span class="prod-brand-tag">Dell</span>
+        </div>
+        <div class="prod-body">
+          <h3>Dell Latitude E6520</h3>
+          <div class="prod-specs">
+            <div class="spec-item"><i class="fas fa-microchip"></i> Core i5 2nd Gen – 2.50GHz</div>
+            <div class="spec-item"><i class="fas fa-memory"></i> 4GB RAM | Up to 16GB</div>
+            <div class="spec-item"><i class="fas fa-hard-drive"></i> 320GB HDD | Up to 2TB</div>
+            <div class="spec-item"><i class="fas fa-display"></i> 15.6" HD/FHD Options</div>
+            <div class="spec-item"><i class="fas fa-tv"></i> Intel HD Graphics 3000</div>
+          </div>
+        </div>
+        <div class="prod-foot">
+          <div class="prod-price na">Out of Stock</div>
+          <div class="prod-actions">
+            <a href="https://alwajidlaptops.com/product/dell-latitude-e6520/" target="_blank" class="icon-btn"><i class="fas fa-eye"></i></a>
+            <a href="https://wa.me/923070021000?text=Notify me when Dell E6520 is back." target="_blank" class="icon-btn wa"><i class="fab fa-whatsapp"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <!-- HP EliteBook 845 G8 -->
+      <div class="prod-card" data-brand="hp" data-status="instock" data-price="75000">
+        <div class="prod-img">
+          <img src="https://support.hp.com/doc-images/700/c08113936.png" alt="HP EliteBook 845 G8"/>
+          <div class="prod-img-overlay"></div>
+          <div class="prod-badges"><span class="badge badge-stock">In Stock</span><span class="badge badge-new">Ryzen</span></div>
+          <span class="prod-brand-tag">HP</span>
+        </div>
+        <div class="prod-body">
+          <h3>HP EliteBook 845 G8</h3>
+          <div class="prod-specs">
+            <div class="spec-item"><i class="fas fa-microchip"></i> AMD Ryzen 5 5650u Hexa Core</div>
+            <div class="spec-item"><i class="fas fa-memory"></i> 8GB DDR4 RAM</div>
+            <div class="spec-item"><i class="fas fa-hard-drive"></i> 256GB SSD NVMe</div>
+            <div class="spec-item"><i class="fas fa-display"></i> 14" Full HD IPS</div>
+            <div class="spec-item"><i class="fas fa-shield-halved"></i> EliteBook Security Grade</div>
+          </div>
+        </div>
+        <div class="prod-foot">
+          <div class="prod-price">₨ 75,000<small>30d Warranty</small></div>
+          <div class="prod-actions">
+            <a href="https://alwajidlaptops.com/product/hp-elitebook-845-g8-ryzen-5/" target="_blank" class="icon-btn"><i class="fas fa-eye"></i></a>
+            <a href="https://wa.me/923070021000?text=Hi! I want HP EliteBook 845 G8 Ryzen 5 – PKR 75,000" target="_blank" class="icon-btn wa"><i class="fab fa-whatsapp"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <!-- HP ProBook 4540s -->
+      <div class="prod-card" data-brand="hp" data-status="instock" data-price="30000">
+        <div class="prod-img">
+          <img src="https://support.hp.com/doc-images/284/c03476282.jpg" alt="HP ProBook 4540s"/>
+          <div class="prod-img-overlay"></div>
+          <div class="prod-badges"><span class="badge badge-stock">In Stock</span></div>
+          <span class="prod-brand-tag">HP</span>
+        </div>
+        <div class="prod-body">
+          <h3>HP ProBook 4540s</h3>
+          <div class="prod-specs">
+            <div class="spec-item"><i class="fas fa-microchip"></i> Core i5 3rd Gen – 2.50GHz 3310M</div>
+            <div class="spec-item"><i class="fas fa-memory"></i> 4GB DDR3 | Up to 8GB</div>
+            <div class="spec-item"><i class="fas fa-hard-drive"></i> 320GB SATA | Up to 1TB</div>
+            <div class="spec-item"><i class="fas fa-display"></i> 15.6" HD Display</div>
+            <div class="spec-item"><i class="fab fa-windows"></i> Windows 10 Activated</div>
+          </div>
+        </div>
+        <div class="prod-foot">
+          <div class="prod-price">₨ 30,000<small>30d Warranty</small></div>
+          <div class="prod-actions">
+            <a href="https://alwajidlaptops.com/product/hp-probook-4540s-core-i3-3rd-generation/" target="_blank" class="icon-btn"><i class="fas fa-eye"></i></a>
+            <a href="https://wa.me/923070021000?text=Hi! I want HP ProBook 4540s i5 – PKR 30,000" target="_blank" class="icon-btn wa"><i class="fab fa-whatsapp"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Lenovo Yoga 260 -->
+      <div class="prod-card" data-brand="lenovo" data-status="instock" data-price="42500">
+        <div class="prod-img">
+          <img src="https://p1-ofp.static.pub/fes/cms/2022/09/07/0x2lvj4yfhbbrslpxbqq7yq6dg0e0i531451.png" alt="Lenovo Yoga 260"/>
+          <div class="prod-img-overlay"></div>
+          <div class="prod-badges"><span class="badge badge-stock">In Stock</span><span class="badge badge-new">Touch</span></div>
+          <span class="prod-brand-tag">Lenovo</span>
+        </div>
+        <div class="prod-body">
+          <h3>ThinkPad Lenovo Yoga 260 x360</h3>
+          <div class="prod-specs">
+            <div class="spec-item"><i class="fas fa-microchip"></i> Core i5 6th Gen – 2.40GHz Turbo 3.0</div>
+            <div class="spec-item"><i class="fas fa-memory"></i> 8GB DDR4 RAM</div>
+            <div class="spec-item"><i class="fas fa-hard-drive"></i> 256GB M.2 SSD</div>
+            <div class="spec-item"><i class="fas fa-display"></i> 13" Touch Screen + Stylus</div>
+            <div class="spec-item"><i class="fas fa-rotate"></i> Full 360° Convertible</div>
+          </div>
+        </div>
+        <div class="prod-foot">
+          <div class="prod-price">₨ 42,500<small>30d Warranty</small></div>
+          <div class="prod-actions">
+            <a href="https://alwajidlaptops.com/product/thinkpad-lenovo-yoga-260-x360-touch-screen-core-i3-6th-generation/" target="_blank" class="icon-btn"><i class="fas fa-eye"></i></a>
+            <a href="https://wa.me/923070021000?text=Hi! I want Lenovo Yoga 260 x360 – PKR 42,500" target="_blank" class="icon-btn wa"><i class="fab fa-whatsapp"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Lenovo E495 -->
+      <div class="prod-card" data-brand="lenovo" data-status="instock" data-price="55000">
+        <div class="prod-img">
+          <img src="https://psrefimages.lenovo.com/id/a39ec01c-25ab-4a83-acc8-ca80dc8b2e4b/e495-1-1200x800.png" alt="Lenovo E495"/>
+          <div class="prod-img-overlay"></div>
+          <div class="prod-badges"><span class="badge badge-stock">In Stock</span><span class="badge badge-hot">GPU</span></div>
+          <span class="prod-brand-tag">Lenovo</span>
+        </div>
+        <div class="prod-body">
+          <h3>ThinkPad Lenovo E495 / T495 / L495</h3>
+          <div class="prod-specs">
+            <div class="spec-item"><i class="fas fa-microchip"></i> AMD Ryzen 5 3500u Turbo Boost</div>
+            <div class="spec-item"><i class="fas fa-memory"></i> 8GB DDR4 RAM</div>
+            <div class="spec-item"><i class="fas fa-display"></i> 14.1" Full HD</div>
+            <div class="spec-item"><i class="fas fa-gamepad"></i> 2GB Dedicated GPU</div>
+          </div>
+        </div>
+        <div class="prod-foot">
+          <div class="prod-price">₨ 55,000<small>30d Warranty</small></div>
+          <div class="prod-actions">
+            <a href="https://alwajidlaptops.com/product/thinkpad-lenovo-ryzen-5-3500u-2gb-dedicated-graphic-carde495-t495-l495/" target="_blank" class="icon-btn"><i class="fas fa-eye"></i></a>
+            <a href="https://wa.me/923070021000?text=Hi! I want Lenovo E495 Ryzen 5 – PKR 55,000" target="_blank" class="icon-btn wa"><i class="fab fa-whatsapp"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sony Vaio -->
+      <div class="prod-card" data-brand="sony" data-status="instock" data-price="62500">
+        <div class="prod-img">
+          <img src="https://www.sony.com/image/5c52bdacd47f8d1a8c9e9be50f0a59f1?fmt=png-alpha&wid=330" alt="Sony Vaio"/>
+          <div class="prod-img-overlay"></div>
+          <div class="prod-badges"><span class="badge badge-stock">In Stock</span><span class="badge badge-new">Japanese</span></div>
+          <span class="prod-brand-tag">Sony</span>
+        </div>
+        <div class="prod-body">
+          <h3>Sony Vaio VJPG – Japanese Import</h3>
+          <div class="prod-specs">
+            <div class="spec-item"><i class="fas fa-microchip"></i> Core i5 10th Generation</div>
+            <div class="spec-item"><i class="fas fa-memory"></i> 8GB DDR4 RAM</div>
+            <div class="spec-item"><i class="fas fa-hard-drive"></i> 256GB NVMe SSD</div>
+            <div class="spec-item"><i class="fas fa-display"></i> 14.1" Anti-Glare LED</div>
+            <div class="spec-item"><i class="fas fa-plane-arrival"></i> Direct Japanese Import</div>
+          </div>
+        </div>
+        <div class="prod-foot">
+          <div class="prod-price">₨ 62,500<small>30d Warranty</small></div>
+          <div class="prod-actions">
+            <a href="https://alwajidlaptops.com/product/sony-vaio-core-i5-10th-generation-vjpg-japanese-laptop-as-low-price/" target="_blank" class="icon-btn"><i class="fas fa-eye"></i></a>
+            <a href="https://wa.me/923070021000?text=Hi! I want Sony Vaio VJPG i5 10th Gen – PKR 62,500" target="_blank" class="icon-btn wa"><i class="fab fa-whatsapp"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <!-- RM Education -->
+      <div class="prod-card" data-brand="other" data-status="instock" data-price="0">
+        <div class="prod-img">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e9/Laptop_01.svg/640px-Laptop_01.svg.png" alt="RM Education Smart"/>
+          <div class="prod-img-overlay"></div>
+          <div class="prod-badges"><span class="badge badge-stock">In Stock</span></div>
+          <span class="prod-brand-tag">RM</span>
+        </div>
+        <div class="prod-body">
+          <h3>RM Education Smart</h3>
+          <div class="prod-specs">
+            <div class="spec-item"><i class="fas fa-microchip"></i> Core i3 2nd Generation</div>
+            <div class="spec-item"><i class="fas fa-display"></i> 15.6" HD Anti-Glare</div>
+            <div class="spec-item"><i class="fas fa-graduation-cap"></i> Education Grade Build</div>
+            <div class="spec-item"><i class="fas fa-shield-halved"></i> 30-Day Warranty</div>
+          </div>
+        </div>
+        <div class="prod-foot">
+          <div class="prod-price na">Ask for Price</div>
+          <div class="prod-actions">
+            <a href="https://alwajidlaptops.com/product/rm-education-smart-core-i3-2nd-generation/" target="_blank" class="icon-btn"><i class="fas fa-eye"></i></a>
+            <a href="https://wa.me/923070021000?text=Hi! I want RM Education Smart Core i3 – price please?" target="_blank" class="icon-btn wa"><i class="fab fa-whatsapp"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <!-- No results placeholder -->
+      <div class="no-results" id="noRes" style="display:none">
+        <i class="fas fa-laptop"></i>
+        <p>No laptops match this filter. <a href="#" onclick="filter('all', document.querySelector('.ftab'))" style="color:var(--red)">Show all</a></p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-about">
+        <a href="index.html" class="logo">
+          <div class="logo-box" style="width:36px;height:36px;font-size:1rem">💻</div>
+          <div class="logo-txt"><strong>Al Wajid Laptops</strong><span>Used Laptops Big Shop</span></div>
+        </a>
+        <p>Lahore's most trusted used laptop store. Premium quality non-painted, non-repaired imported laptops with full warranty &amp; after-sale care.</p>
+        <div class="footer-social">
+          <a href="https://wa.me/923070021000" target="_blank" class="soc-btn" style="color:#25d366"><i class="fab fa-whatsapp"></i></a>
+          <a href="#" class="soc-btn" style="color:#1877f2"><i class="fab fa-facebook-f"></i></a>
+          <a href="mailto:alwajidlaptops@gmail.com" class="soc-btn"><i class="fas fa-envelope"></i></a>
+        </div>
+      </div>
+      <div>
+        <h4>Quick Links</h4>
+        <ul class="footer-links">
+          <li><a href="index.html"><i class="fas fa-chevron-right"></i> Home</a></li>
+          <li><a href="products.html"><i class="fas fa-chevron-right"></i> Products</a></li>
+          <li><a href="about.html"><i class="fas fa-chevron-right"></i> About</a></li>
+          <li><a href="contact.html"><i class="fas fa-chevron-right"></i> Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Brands</h4>
+        <ul class="footer-links">
+          <li><a href="#"><i class="fas fa-chevron-right"></i> Dell</a></li>
+          <li><a href="#"><i class="fas fa-chevron-right"></i> HP</a></li>
+          <li><a href="#"><i class="fas fa-chevron-right"></i> Lenovo</a></li>
+          <li><a href="#"><i class="fas fa-chevron-right"></i> Sony Vaio</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <div class="footer-cinfo">
+          <div class="f-ci"><i class="fas fa-map-marker-alt"></i><span>DHA Ghazi Road, Lahore</span></div>
+          <div class="f-ci"><i class="fas fa-phone"></i><span>+92 307 002 1000</span></div>
+          <div class="f-ci"><i class="far fa-clock"></i><span>Mon–Sun: 11AM – 10PM</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 <span>Al Wajid Laptops</span>. All Rights Reserved.</p>
+      <p>DHA Ghazi Road, Lahore, Pakistan</p>
+    </div>
+  </div>
+</footer>
+
+<a href="https://wa.me/923070021000" target="_blank" class="wa-float"><i class="fab fa-whatsapp"></i> WhatsApp Us</a>
+<button class="scroll-top-btn" id="stb" onclick="window.scrollTo({top:0,behavior:'smooth'})"><i class="fas fa-arrow-up"></i></button>
+
+<script>
+  function openMob()  { document.getElementById('mobNav').classList.add('open'); }
+  function closeMob() { document.getElementById('mobNav').classList.remove('open'); }
+  window.addEventListener('scroll', () => {
+    document.getElementById('stb').classList.toggle('show', window.scrollY > 300);
+  });
+
+  // Filter
+  function filter(type, el) {
+    document.querySelectorAll('.ftab').forEach(t => t.classList.remove('on'));
+    el.classList.add('on');
+    const cards = document.querySelectorAll('.prod-card');
+    let shown = 0;
+    cards.forEach(c => {
+      const match = type === 'all' || c.dataset.brand === type || (type === 'instock' && c.dataset.status === 'instock');
+      c.style.display = match ? 'flex' : 'none';
+      if (match) shown++;
+    });
+    document.getElementById('cnt').textContent = shown;
+    document.getElementById('noRes').style.display = shown === 0 ? 'block' : 'none';
+  }
+
+  // Sort
+  function sortProducts(val) {
+    const grid = document.getElementById('grid');
+    const cards = [...document.querySelectorAll('.prod-card')];
+    cards.sort((a, b) => {
+      const pa = +a.dataset.price, pb = +b.dataset.price;
+      if (val === 'low') return pa - pb;
+      if (val === 'high') return pb - pa;
+      return 0;
+    });
+    cards.forEach(c => grid.insertBefore(c, document.getElementById('noRes')));
+  }
+</script>
+</body>
+</html>
