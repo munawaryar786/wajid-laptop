@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>About – Al Wajid Laptops</title>
+  <link rel="stylesheet" href="style.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+  <style>
+    /* ====== ABOUT PAGE ====== */
+    .about-intro {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 52px;
+      align-items: center;
+    }
+    .about-img-block {
+      position: relative;
+    }
+    .about-img-main {
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      background: linear-gradient(135deg, #1a2438, #0f1825);
+      height: 380px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid var(--border);
+      font-size: 7rem;
+    }
+    .about-stat-card {
+      position: absolute;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 14px 18px;
+      box-shadow: var(--shadow);
+    }
+    .asc-1 { bottom: -16px; left: -16px; }
+    .asc-2 { top: -16px; right: -16px; }
+    .asc-num { font-size: 1.6rem; font-weight: 900; color: var(--red); line-height: 1; }
+    .asc-lbl { font-size: .72rem; color: var(--gray); font-weight: 500; margin-top: 2px; }
+    .about-txt h2 { font-size: 1.8rem; font-weight: 900; margin-bottom: 14px; }
+    .about-txt h2 span { color: var(--red); }
+    .about-txt p { font-size: .86rem; color: var(--gray); line-height: 1.85; margin-bottom: 18px; }
+    .about-checks { display: flex; flex-direction: column; gap: 10px; margin-bottom: 24px; }
+    .about-check {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: .84rem;
+    }
+    .about-check i { color: var(--green); width: 16px; flex-shrink: 0; }
+
+    /* Values */
+    .values-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 18px;
+    }
+    .val-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 26px 22px;
+      text-align: center;
+      transition: var(--tr);
+    }
+    .val-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(230,57,70,.35);
+      box-shadow: var(--shadow-lg);
+    }
+    .val-icon {
+      width: 54px; height: 54px;
+      background: rgba(230,57,70,.1);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.3rem;
+      color: var(--red);
+      margin: 0 auto 16px;
+      transition: var(--tr);
+    }
+    .val-card:hover .val-icon { background: var(--red); color: #fff; }
+    .val-card h3 { font-size: .9rem; font-weight: 700; margin-bottom: 7px; }
+    .val-card p { font-size: .78rem; color: var(--gray); line-height: 1.7; }
+
+    /* Stats row */
+    .stats-row {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1px;
+      background: var(--border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+    }
+    .st-cell {
+      background: var(--card);
+      padding: 30px 20px;
+      text-align: center;
+      transition: var(--tr);
+    }
+    .st-cell:hover { background: var(--card2); }
+    .st-num { font-size: 2.2rem; font-weight: 900; color: var(--red); line-height: 1; }
+    .st-lbl { font-size: .76rem; color: var(--gray); margin-top: 5px; }
+
+    /* Team USP */
+    .usp-list {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+    .usp-item {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 16px;
+      transition: var(--tr);
+    }
+    .usp-item:hover { border-color: rgba(230,57,70,.3); }
+    .usp-item i { color: var(--red); margin-top: 2px; flex-shrink: 0; }
+    .usp-item div strong { display: block; font-size: .86rem; font-weight: 700; margin-bottom: 3px; }
+    .usp-item div span { font-size: .78rem; color: var(--gray); }
+
+    @media (max-width: 900px) {
+      .about-intro { grid-template-columns: 1fr; }
+      .about-img-block { display: none; }
+      .stats-row { grid-template-columns: 1fr 1fr; }
+      .usp-list { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 500px) {
+      .stats-row { grid-template-columns: 1fr 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="topbar">
+  <div class="container">
+    <div class="topbar-l">
+      <a href="tel:+923070021000"><i class="fas fa-phone"></i> +92 307 002 1000</a>
+      <a href="mailto:alwajidlaptops@gmail.com"><i class="fas fa-envelope"></i> alwajidlaptops@gmail.com</a>
+    </div>
+    <div class="topbar-r">
+      <a href="#"><i class="far fa-clock"></i> Mon–Sun: 11AM – 10PM</a>
+      <a href="#"><i class="fas fa-map-marker-alt"></i> DHA Ghazi Road, Lahore</a>
+    </div>
+  </div>
+</div>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+  <div class="container">
+    <div class="nav-inner">
+      <a href="index.html" class="logo">
+        <div class="logo-box">💻</div>
+        <div class="logo-txt"><strong>Al Wajid Laptops</strong><span>Used Laptops Big Shop · Lahore</span></div>
+      </a>
+      <ul class="nav-menu">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="products.html">Products</a></li>
+        <li><a href="about.html" class="active">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <div class="nav-cta-d">
+        <a href="https://wa.me/923070021000" class="btn btn-wa" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+      </div>
+      <div class="hamburger" onclick="openMob()"><span></span><span></span><span></span></div>
+    </div>
+  </div>
+</nav>
+<div class="mob-nav" id="mobNav">
+  <span class="mob-close" onclick="closeMob()"><i class="fas fa-times"></i></span>
+  <a href="index.html" onclick="closeMob()">Home</a>
+  <a href="products.html" onclick="closeMob()">Products</a>
+  <a href="about.html" onclick="closeMob()">About</a>
+  <a href="contact.html" onclick="closeMob()">Contact</a>
+  <a href="https://wa.me/923070021000" class="btn btn-wa" target="_blank" onclick="closeMob()"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+</div>
+
+<!-- PAGE HERO -->
+<div class="page-hero">
+  <div class="container">
+    <div class="breadcrumb"><a href="index.html">Home</a><i class="fas fa-chevron-right"></i><span>About Us</span></div>
+    <h1>About <span>Al Wajid</span> Laptops</h1>
+    <p>Lahore's most trusted used laptop store — built on quality, transparency, and genuine customer care.</p>
+  </div>
+</div>
+
+<!-- ABOUT INTRO -->
+<section class="section">
+  <div class="container">
+    <div class="about-intro">
+      <div class="about-img-block">
+        <div class="about-img-main">🏪</div>
+        <div class="about-stat-card asc-1">
+          <div class="asc-num">500+</div>
+          <div class="asc-lbl">Laptops Sold</div>
+        </div>
+        <div class="about-stat-card asc-2">
+          <div class="asc-num">4.8★</div>
+          <div class="asc-lbl">Customer Rating</div>
+        </div>
+      </div>
+      <div class="about-txt">
+        <h2>Lahore's Most <span>Trusted</span> Used Laptop Shop</h2>
+        <p>Al Wajid Laptops is Lahore's premier destination for high-quality used laptops. Located on DHA Ghazi Road near Shoukat Town, we specialize in imported, non-painted, non-repaired business laptops from top brands like Dell, HP, Lenovo, and Sony Vaio.</p>
+        <p>We believe in complete transparency — every laptop on our website shows its real price, real specs, and real stock status. No surprises when you visit the store. What you see online is exactly what you get.</p>
+        <div class="about-checks">
+          <div class="about-check"><i class="fas fa-circle-check"></i> 30-Day Al-Wajid Warranty on every laptop</div>
+          <div class="about-check"><i class="fas fa-circle-check"></i> 6-Month free after-sale service included</div>
+          <div class="about-check"><i class="fas fa-circle-check"></i> Non-painted, non-repaired imported stock only</div>
+          <div class="about-check"><i class="fas fa-circle-check"></i> All prices listed transparently online</div>
+          <div class="about-check"><i class="fas fa-circle-check"></i> Live stock updates — no wasted visits</div>
+          <div class="about-check"><i class="fas fa-circle-check"></i> Open 7 days a week, 11 AM to 10 PM</div>
+        </div>
+        <a href="contact.html" class="btn btn-red"><i class="fas fa-store"></i> Visit Our Store</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<section class="section section-alt">
+  <div class="container">
+    <div class="stats-row">
+      <div class="st-cell"><div class="st-num">500+</div><div class="st-lbl">Laptops Sold</div></div>
+      <div class="st-cell"><div class="st-num">4.8★</div><div class="st-lbl">Customer Rating</div></div>
+      <div class="st-cell"><div class="st-num">7</div><div class="st-lbl">Days Open Per Week</div></div>
+      <div class="st-cell"><div class="st-num">6M</div><div class="st-lbl">Free After-Sale Service</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- OUR VALUES -->
+<section class="section">
+  <div class="container">
+    <div class="sec-head"><h2 class="sec-title">Our <span>Values</span></h2></div>
+    <p class="sec-sub center">Everything we do is built around these core principles.</p>
+    <div class="values-grid">
+      <div class="val-card">
+        <div class="val-icon"><i class="fas fa-handshake"></i></div>
+        <h3>Honesty</h3>
+        <p>Every laptop we sell is exactly as described — no false specs, no hidden costs, no painted or repaired devices.</p>
+      </div>
+      <div class="val-card">
+        <div class="val-icon"><i class="fas fa-medal"></i></div>
+        <h3>Quality</h3>
+        <p>We only stock imported laptops that meet our strict quality standards. No locally used or repaired devices allowed.</p>
+      </div>
+      <div class="val-card">
+        <div class="val-icon"><i class="fas fa-heart"></i></div>
+        <h3>Customer First</h3>
+        <p>Your satisfaction is our priority. From the first WhatsApp message to 6 months of free after-sale service.</p>
+      </div>
+      <div class="val-card">
+        <div class="val-icon"><i class="fas fa-eye"></i></div>
+        <h3>Transparency</h3>
+        <p>Prices, specs, and stock status are always published openly on our website — no surprise charges ever.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT MAKES US DIFFERENT -->
+<section class="section section-alt">
+  <div class="container">
+    <div class="sec-head"><h2 class="sec-title">What Makes Us <span>Different?</span></h2></div>
+    <p class="sec-sub center">Here's why thousands of customers in Lahore choose Al Wajid over any other used laptop shop.</p>
+    <div class="usp-list">
+      <div class="usp-item"><i class="fas fa-check-circle"></i><div><strong>Non-Painted Laptops</strong><span>Every laptop is in its original natural condition — no cosmetic cover-ups.</span></div></div>
+      <div class="usp-item"><i class="fas fa-check-circle"></i><div><strong>Non-Repaired Stock</strong><span>All our imports are clean with zero repair history — genuine quality only.</span></div></div>
+      <div class="usp-item"><i class="fas fa-check-circle"></i><div><strong>Prices Online Always</strong><span>No need to call — all in-stock prices are visible 24/7 on our website.</span></div></div>
+      <div class="usp-item"><i class="fas fa-check-circle"></i><div><strong>Real Stock Updates</strong><span>We update availability daily so customers never come for something that's sold.</span></div></div>
+      <div class="usp-item"><i class="fas fa-check-circle"></i><div><strong>30-Day Warranty</strong><span>Every single laptop comes with our genuine 30-day replacement warranty.</span></div></div>
+      <div class="usp-item"><i class="fas fa-check-circle"></i><div><strong>6-Month Free Service</strong><span>We provide 6 months of after-sale technical support at no extra charge.</span></div></div>
+      <div class="usp-item"><i class="fas fa-check-circle"></i><div><strong>Walk-In Friendly</strong><span>Open every day 11AM–10PM — no appointment needed to inspect any laptop.</span></div></div>
+      <div class="usp-item"><i class="fas fa-check-circle"></i><div><strong>WhatsApp Support</strong><span>Instant messaging support for inquiries, bookings, and after-sale service.</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="section">
+  <div class="container" style="text-align:center;max-width:580px">
+    <h2 class="sec-title">Ready to Find Your <span>Dream Laptop?</span></h2>
+    <p style="color:var(--gray);font-size:.88rem;line-height:1.8;margin-bottom:28px">Browse our full catalogue online, then visit us in Lahore or reach out via WhatsApp. We'll help you find the perfect laptop for your budget and needs.</p>
+    <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap">
+      <a href="products.html" class="btn btn-red"><i class="fas fa-laptop"></i> Browse Laptops</a>
+      <a href="https://wa.me/923070021000" target="_blank" class="btn btn-wa"><i class="fab fa-whatsapp"></i> WhatsApp Us</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-about">
+        <a href="index.html" class="logo">
+          <div class="logo-box" style="width:36px;height:36px;font-size:1rem">💻</div>
+          <div class="logo-txt"><strong>Al Wajid Laptops</strong><span>Used Laptops Big Shop</span></div>
+        </a>
+        <p>Lahore's most trusted used laptop store. Non-painted, non-repaired imported laptops with 30-day warranty &amp; 6-month free after-sale service.</p>
+        <div class="footer-social">
+          <a href="https://wa.me/923070021000" target="_blank" class="soc-btn" style="color:#25d366"><i class="fab fa-whatsapp"></i></a>
+          <a href="#" class="soc-btn" style="color:#1877f2"><i class="fab fa-facebook-f"></i></a>
+          <a href="mailto:alwajidlaptops@gmail.com" class="soc-btn"><i class="fas fa-envelope"></i></a>
+          <a href="tel:+923070021000" class="soc-btn"><i class="fas fa-phone"></i></a>
+        </div>
+      </div>
+      <div>
+        <h4>Pages</h4>
+        <ul class="footer-links">
+          <li><a href="index.html"><i class="fas fa-chevron-right"></i> Home</a></li>
+          <li><a href="products.html"><i class="fas fa-chevron-right"></i> Products</a></li>
+          <li><a href="about.html"><i class="fas fa-chevron-right"></i> About Us</a></li>
+          <li><a href="contact.html"><i class="fas fa-chevron-right"></i> Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Brands</h4>
+        <ul class="footer-links">
+          <li><a href="products.html"><i class="fas fa-chevron-right"></i> Dell</a></li>
+          <li><a href="products.html"><i class="fas fa-chevron-right"></i> HP</a></li>
+          <li><a href="products.html"><i class="fas fa-chevron-right"></i> Lenovo</a></li>
+          <li><a href="products.html"><i class="fas fa-chevron-right"></i> Sony Vaio</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <div class="footer-cinfo">
+          <div class="f-ci"><i class="fas fa-map-marker-alt"></i><span>DHA Ghazi Road, Lahore</span></div>
+          <div class="f-ci"><i class="fas fa-phone"></i><span>+92 307 002 1000</span></div>
+          <div class="f-ci"><i class="fas fa-envelope"></i><span>alwajidlaptops@gmail.com</span></div>
+          <div class="f-ci"><i class="far fa-clock"></i><span>Mon–Sun: 11AM – 10PM</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 <span>Al Wajid Laptops</span>. All Rights Reserved.</p>
+      <p>DHA Ghazi Road, Lahore, Pakistan</p>
+    </div>
+  </div>
+</footer>
+
+<a href="https://wa.me/923070021000" target="_blank" class="wa-float"><i class="fab fa-whatsapp"></i> WhatsApp Us</a>
+<button class="scroll-top-btn" id="stb" onclick="window.scrollTo({top:0,behavior:'smooth'})"><i class="fas fa-arrow-up"></i></button>
+
+<script>
+  function openMob()  { document.getElementById('mobNav').classList.add('open'); }
+  function closeMob() { document.getElementById('mobNav').classList.remove('open'); }
+  window.addEventListener('scroll', () => {
+    document.getElementById('stb').classList.toggle('show', window.scrollY > 300);
+  });
+</script>
+</body>
+</html>
